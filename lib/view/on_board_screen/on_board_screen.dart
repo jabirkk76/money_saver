@@ -1,9 +1,12 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:money_saver/controller/onboard_controller.dart';
 import 'package:money_saver/helpers/app_colors.dart';
 import 'package:money_saver/helpers/app_localization.dart';
 import 'package:money_saver/widget/localization_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localization/flutter_localization_method_channel.dart';
 
 class OnBoardScreen extends StatefulWidget {
   const OnBoardScreen({super.key});

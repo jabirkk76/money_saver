@@ -13,6 +13,11 @@ class AddIncomeWidget extends StatelessWidget {
     final categoryController =
         Provider.of<CategoryController>(context, listen: false);
     return Consumer<CategoryController>(builder: (context, value, child) {
+      if (value.incomeCategoryList.isEmpty) {
+        return const Center(
+          child: Text('No category added'),
+        );
+      }
       return ListView.separated(
         separatorBuilder: (context, index) => AppSizes.szdBxH10,
         itemCount: value.incomeCategoryList.length,

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:money_saver/db/transactions/transactions_db.dart';
 import 'package:money_saver/model/category_model/category_model.dart';
 import 'package:money_saver/model/transactions_model/transactions_model.dart';
+import 'package:money_saver/view/on_board_screen/on_board_screen.dart';
 import 'package:money_saver/widget/bottom_navigation_bar_widget.dart';
 
 class TransactionController with ChangeNotifier {
@@ -65,5 +66,19 @@ class TransactionController with ChangeNotifier {
 
     isLoading = false;
     notifyListeners();
+  }
+
+  deleteAllTransaction() async {
+    await TransactionDataBaseFunctions().deleteAll();
+    getAllData();
+    notifyListeners();
+  }
+
+  void navigateToHome(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const OnBoardScreen(),
+      ),
+    );
   }
 }

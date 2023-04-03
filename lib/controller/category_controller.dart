@@ -70,4 +70,10 @@ class CategoryController extends ChangeNotifier {
     await CategoryDataBaseFunctions().delete(index);
     notifyListeners();
   }
+
+  deleteAllCategories() async {
+    await CategoryDataBaseFunctions().deleteAll();
+    getAllData();
+    notifyListeners();
+  }
 }

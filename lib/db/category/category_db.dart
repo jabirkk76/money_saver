@@ -21,4 +21,9 @@ class CategoryDataBaseFunctions {
     final _db = await Hive.openBox<CategoryModel>('db');
     await _db.deleteAt(index);
   }
+
+  Future<void> deleteAll() async {
+    final _db = await Hive.openBox<CategoryModel>('db');
+    await _db.deleteFromDisk();
+  }
 }

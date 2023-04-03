@@ -31,4 +31,9 @@ class TransactionDataBaseFunctions {
     final _db = await Hive.openBox<TransactionModel>('dbKey');
     await _db.putAt(index, model);
   }
+
+  Future<void> deleteAll() async {
+    final _db = await Hive.openBox<TransactionModel>('dbKey');
+    await _db.deleteFromDisk();
+  }
 }
